@@ -9,7 +9,7 @@ public class Potrosnja {
         return predjenoKm;
     }
 
-    public void setPredjenoKm(double predjenoKm) {
+    public Object setPredjenoKm(double predjenoKm) {
         this.predjenoKm = predjenoKm;
     }
 

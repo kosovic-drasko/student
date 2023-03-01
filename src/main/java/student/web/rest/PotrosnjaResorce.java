@@ -10,10 +10,9 @@ import student.service.PotrosnjaService;
 class PotrosnjaResorce {
 
     PotrosnjaService potrosnjaService = new PotrosnjaService();
-
-    @GetMapping
-    public void izracunajPotrosnju() {
-        // log.debug("REST request to count Students by criteria: {}", criteria);
-        potrosnjaService.izracunaj(450);
-    }
+    // @GetMapping()
+    // public void izracunajPotrosnju() {
+    //     // log.debug("REST request to count Students by criteria: {}", criteria);
+    //     potrosnjaService.izracunaj(450);
+    // }
 }

@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-potrosnja-goriva-heading" data-cy="PotrosnjaGorivaCreateUpdateHeading">Create or edit a Potrosnja Goriva</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_predjenoKm">Predjeno Km</label>
+          <input
+            type="number"
+            class="form-control"
+            name="predjenoKm"
+            id="field_predjenoKm"
+            data-cy="predjenoKm"
+            formControlName="predjenoKm"
+          />
+          <div *ngIf="editForm.get('predjenoKm')!.invalid && (editForm.get('predjenoKm')!.dirty || editForm.get('predjenoKm')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('predjenoKm')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('predjenoKm')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_potrosnjaOtvoreno">Potrosnja Otvoreno</label>
+          <input
+            type="number"
+            class="form-control"
+            name="potrosnjaOtvoreno"
+            id="field_potrosnjaOtvoreno"
+            data-cy="potrosnjaOtvoreno"
+            formControlName="potrosnjaOtvoreno"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

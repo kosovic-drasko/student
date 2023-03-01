@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import student.domain.Student;
 import student.repository.StudentRepository;
+import student.service.PotrosnjaService;
 import student.service.StudentQueryService;
 import student.service.StudentService;
 import student.service.criteria.StudentCriteria;
@@ -45,6 +46,8 @@ public class StudentResource {
     private final StudentRepository studentRepository;
 
     private final StudentQueryService studentQueryService;
+
+    PotrosnjaService potrosnjaService = new PotrosnjaService();
 
     public StudentResource(StudentService studentService, StudentRepository studentRepository, StudentQueryService studentQueryService) {
         this.studentService = studentService;
@@ -199,5 +202,11 @@ public class StudentResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("/potrosnja")
+    public void izracunajPotrosnju() {
+        // log.debug("REST request to count Students by criteria: {}", criteria);
+        potrosnjaService.izracunaj(450);
     }
 }

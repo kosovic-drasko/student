@@ -1,0 +1,19 @@
+{
+  "changelogDate": "20230301073444",
+  "fields": [
+    {
+      "fieldName": "predjenoKm",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "potrosnjaOtvoreno",
+      "fieldType": "Double"
+    }
+  ],
+  "name": "PotrosnjaGoriva",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}
