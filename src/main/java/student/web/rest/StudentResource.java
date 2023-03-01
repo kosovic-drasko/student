@@ -207,6 +207,12 @@ public class StudentResource {
     @GetMapping("/potrosnja")
     public void izracunajPotrosnju() {
         // log.debug("REST request to count Students by criteria: {}", criteria);
-        potrosnjaService.izracunaj(450);
+        potrosnjaService.izracunaj();
+    }
+
+    @GetMapping("/potrosnja1")
+    public double izracunajPotrosnju1() {
+        // log.debug("REST request to count Students by criteria: {}", criteria);
+        return potrosnjaService.izracunaj1();
     }
 }

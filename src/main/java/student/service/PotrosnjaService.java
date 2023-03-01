@@ -12,7 +12,13 @@ public class PotrosnjaService {
 
     @Transactional
     public void izracunaj() {
-        double potr = (double) potrosnja.setPredjenoKm(400);
+        double potr = potrosnja.setPredjenoKm(400);
+
         System.out.println("Potrosnja je:   " + potr);
+    }
+
+    @Transactional
+    public double izracunaj1() {
+        return 488.00;
     }
 }
