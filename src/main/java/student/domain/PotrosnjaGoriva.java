@@ -1,10 +1,6 @@
 package student.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A PotrosnjaGoriva.
@@ -66,22 +62,9 @@ public class PotrosnjaGoriva implements Serializable {
         return this;
     }
 
-    public void setPotrosnjaOtvoreno(Double potrosnjaOtvoreno) {
-        this.potrosnjaOtvoreno = potrosnjaOtvoreno;
+    public void setPotrosnjaOtvoreno(int i) {
+        this.potrosnjaOtvoreno = (double) i;
     }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    // @Override
-    // public boolean equals(Object o) {
-    //     if (this == o) {
-    //         return true;
-    //     }
-    //     if (!(o instanceof PotrosnjaGoriva)) {
-    //         return false;
-    //     }
-    //     return id != null && id.equals(((PotrosnjaGoriva) o).id);
-    // }
 
     @Override
     public int hashCode() {
@@ -98,4 +81,6 @@ public class PotrosnjaGoriva implements Serializable {
             ", potrosnjaOtvoreno=" + getPotrosnjaOtvoreno() +
             "}";
     }
+
+    public void setPotrosnjaOtvoreno(double d) {}
 }

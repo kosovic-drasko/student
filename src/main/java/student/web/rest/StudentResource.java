@@ -47,8 +47,6 @@ public class StudentResource {
 
     private final StudentQueryService studentQueryService;
 
-    PotrosnjaService potrosnjaService = new PotrosnjaService();
-
     public StudentResource(StudentService studentService, StudentRepository studentRepository, StudentQueryService studentQueryService) {
         this.studentService = studentService;
         this.studentRepository = studentRepository;
@@ -202,17 +200,5 @@ public class StudentResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
-    }
-
-    @GetMapping("/potrosnja")
-    public void izracunajPotrosnju() {
-        // log.debug("REST request to count Students by criteria: {}", criteria);
-        potrosnjaService.izracunaj();
-    }
-
-    @GetMapping("/potrosnja1")
-    public double izracunajPotrosnju1() {
-        // log.debug("REST request to count Students by criteria: {}", criteria);
-        return potrosnjaService.izracunaj1();
     }
 }

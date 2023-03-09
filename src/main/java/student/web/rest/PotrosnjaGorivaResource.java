@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import student.domain.PotrosnjaGoriva;
+import student.service.PotrosnjaGorivaService;
 import student.service.PotrosnjaService;
 import student.web.rest.errors.BadRequestAlertException;
 import tech.jhipster.web.util.HeaderUtil;
@@ -32,12 +33,12 @@ public class PotrosnjaGorivaResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    PotrosnjaService potrosnjaService = new PotrosnjaService();
+    PotrosnjaGorivaService potrosnjaGorivaService = new PotrosnjaGorivaService();
 
-    public PotrosnjaGorivaResource() {}
-    // @GetMapping()
-    // public void izracunajPotrosnju() {
-    //     // log.debug("REST request to count Students by criteria: {}", criteria);
-    //     potrosnjaService.izracunaj(450);
-    // }
+    @GetMapping("/potrosnja")
+    public double izracunajPotrosnju1() {
+        log.debug("Izracunavam potrosnju goriva: {}");
+
+        return potrosnjaGorivaService.izracunaj();
+    }
 }

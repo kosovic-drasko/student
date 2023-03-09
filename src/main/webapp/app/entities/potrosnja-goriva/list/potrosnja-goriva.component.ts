@@ -16,7 +16,7 @@ import { SortService } from 'app/shared/sort/sort.service';
 export class PotrosnjaGorivaComponent implements OnInit {
   potrosnjaGorivas?: IPotrosnjaGoriva[];
   isLoading = false;
-
+  potrosnja?: string;
   predicate = 'id';
   ascending = true;
 
@@ -51,11 +51,9 @@ export class PotrosnjaGorivaComponent implements OnInit {
   }
 
   load(): void {
-    this.loadFromBackendWithRouteInformations().subscribe({
-      next: (res: EntityArrayResponseType) => {
-        this.onResponseSuccess(res);
-      },
-    });
+    // this.onResponseSuccess(res);
+    this.queryBackendPotrosnja;
+    console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<', this.potrosnja);
   }
 
   navigateToWithComponentValues(): void {
@@ -94,6 +92,14 @@ export class PotrosnjaGorivaComponent implements OnInit {
       sort: this.getSortQueryParam(predicate, ascending),
     };
     return this.potrosnjaGorivaService.query(queryObject).pipe(tap(() => (this.isLoading = false)));
+  }
+
+  protected queryBackendPotrosnja(): any {
+    return this.potrosnjaGorivaService.potrosnja().subscribe({
+      next: res => {
+        this.potrosnja = res;
+      },
+    });
   }
 
   protected handleNavigation(predicate?: string, ascending?: boolean): void {

@@ -15,6 +15,7 @@ export type EntityArrayResponseType = HttpResponse<IPotrosnjaGoriva[]>;
 @Injectable({ providedIn: 'root' })
 export class PotrosnjaGorivaService {
   protected resourceUrl = this.applicationConfigService.getEndpointFor('api/potrosnja-gorivas');
+  protected resourceUrlPotrosnja = this.applicationConfigService.getEndpointFor('api/potrosnja');
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
@@ -41,6 +42,10 @@ export class PotrosnjaGorivaService {
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http.get<IPotrosnjaGoriva[]>(this.resourceUrl, { params: options, observe: 'response' });
+  }
+
+  potrosnja(): Observable<any> {
+    return this.http.get(this.resourceUrlPotrosnja, { observe: 'response' });
   }
 
   delete(id: number): Observable<HttpResponse<{}>> {
