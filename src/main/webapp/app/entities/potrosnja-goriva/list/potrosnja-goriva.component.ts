@@ -19,7 +19,8 @@ export class PotrosnjaGorivaComponent implements OnInit {
   potrosnja?: string;
   predicate = 'id';
   ascending = true;
-  potrosnjaGradska?: any = 135.0;
+  potrosnjaOtvoreno?: any;
+  predjenoKm?: any;
   constructor(
     protected potrosnjaGorivaService: PotrosnjaGorivaService,
     protected activatedRoute: ActivatedRoute,
@@ -34,9 +35,10 @@ export class PotrosnjaGorivaComponent implements OnInit {
     this.load();
   }
   protected queryBackendPotrosnja(): any {
-    return this.potrosnjaGorivaService.potrosnja(this.potrosnjaGradska).subscribe({
+    return this.potrosnjaGorivaService.potrosnja(this.potrosnjaOtvoreno, this.predjenoKm).subscribe({
       next: (res: string | undefined) => {
         this.potrosnja = res;
+        // this.predjenoKm=res;
         console.log('To je potrosnja:', this.potrosnja);
       },
     });

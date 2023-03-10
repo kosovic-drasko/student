@@ -36,10 +36,13 @@ public class PotrosnjaGorivaResource {
 
     PotrosnjaGorivaService potrosnjaGorivaService = new PotrosnjaGorivaService();
 
-    @GetMapping("/potrosnja/{potrosnja}")
-    public double izracunajPotrosnju1(@PathVariable(value = "potrosnja") final Double potrosnja) {
+    @GetMapping("/potrosnja/{potrosnja}/{predjeno}")
+    public double izracunajPotrosnju1(
+        @PathVariable(value = "potrosnja") final Double potrosnja,
+        @PathVariable(value = "predjeno") final Double predjeno
+    ) {
         log.debug("Izracunavam potrosnju goriva: {}", potrosnja);
 
-        return potrosnjaGorivaService.izracunaj(potrosnja);
+        return potrosnjaGorivaService.izracunaj(potrosnja, predjeno);
     }
 }

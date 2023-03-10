@@ -11,8 +11,10 @@ public class PotrosnjaGorivaService {
     PotrosnjaGoriva potrosnjaGoriva = new PotrosnjaGoriva();
 
     @Transactional
-    public double izracunaj(double potrosnja) {
-        potrosnjaGoriva.setPotrosnjaOtvoreno(potrosnja);
-        return potrosnjaGoriva.getPotrosnjaOtvoreno();
+    public double izracunaj(double potrosnjaOtv, double predjKm) {
+        // potrosnjaGoriva.setPotrosnjaOtvoreno(potrosnjaOtvoreno);
+        double ukuonaPotrosnja = potrosnjaOtv * predjKm;
+        //    System.out.println("Ukupna potrosnja je: ",ukuonaPotrosnja);
+        return ukuonaPotrosnja;
     }
 }

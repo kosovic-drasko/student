@@ -19,8 +19,8 @@ export class PotrosnjaGorivaService {
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
-  potrosnja(potrosnja: number): any {
-    return this.http.get(`${this.resourceUrlPotrosnja}/${potrosnja}`);
+  potrosnja(potrosnja: number, predjeno: number): any {
+    return this.http.get(`${this.resourceUrlPotrosnja}/${potrosnja}/${predjeno}`);
   }
 
   create(potrosnjaGoriva: NewPotrosnjaGoriva): Observable<EntityResponseType> {
