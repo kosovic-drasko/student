@@ -44,8 +44,8 @@ export class PotrosnjaGorivaService {
     return this.http.get<IPotrosnjaGoriva[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  potrosnja(): Observable<any> {
-    return this.http.get(this.resourceUrlPotrosnja, { observe: 'response' });
+  potrosnja(): any {
+    return this.http.get(this.resourceUrlPotrosnja);
   }
 
   delete(id: number): Observable<HttpResponse<{}>> {

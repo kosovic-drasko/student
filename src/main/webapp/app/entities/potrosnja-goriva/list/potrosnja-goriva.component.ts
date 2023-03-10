@@ -49,11 +49,19 @@ export class PotrosnjaGorivaComponent implements OnInit {
         },
       });
   }
+  protected queryBackendPotrosnja(): any {
+    return this.potrosnjaGorivaService.potrosnja().subscribe({
+      next: (res: string | undefined) => {
+        this.potrosnja = res;
+        console.log('To je potrosnja:', this.potrosnja);
+      },
+    });
+  }
 
   load(): void {
     // this.onResponseSuccess(res);
-    this.queryBackendPotrosnja;
-    console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<', this.potrosnja);
+    this.queryBackendPotrosnja();
+    // console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<', this.potrosnja);
   }
 
   navigateToWithComponentValues(): void {
@@ -92,14 +100,6 @@ export class PotrosnjaGorivaComponent implements OnInit {
       sort: this.getSortQueryParam(predicate, ascending),
     };
     return this.potrosnjaGorivaService.query(queryObject).pipe(tap(() => (this.isLoading = false)));
-  }
-
-  protected queryBackendPotrosnja(): any {
-    return this.potrosnjaGorivaService.potrosnja().subscribe({
-      next: res => {
-        this.potrosnja = res;
-      },
-    });
   }
 
   protected handleNavigation(predicate?: string, ascending?: boolean): void {
