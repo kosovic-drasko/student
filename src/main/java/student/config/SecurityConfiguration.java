@@ -122,7 +122,7 @@ public class SecurityConfiguration {
                 .antMatchers("/api/uploadfiles/specifikacije")
                 .antMatchers("/api/set")
                 .antMatchers("/api/upload")
-                .antMatchers("/api/potrosnja")
+                .antMatchers("/api/potrosnja/**")
                 .antMatchers("/test/**");
     }
 }

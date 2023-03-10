@@ -19,6 +19,10 @@ export class PotrosnjaGorivaService {
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
+  potrosnja(potrosnja: number): any {
+    return this.http.get(`${this.resourceUrlPotrosnja}/${potrosnja}`);
+  }
+
   create(potrosnjaGoriva: NewPotrosnjaGoriva): Observable<EntityResponseType> {
     return this.http.post<IPotrosnjaGoriva>(this.resourceUrl, potrosnjaGoriva, { observe: 'response' });
   }
@@ -42,10 +46,6 @@ export class PotrosnjaGorivaService {
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http.get<IPotrosnjaGoriva[]>(this.resourceUrl, { params: options, observe: 'response' });
-  }
-
-  potrosnja(): any {
-    return this.http.get(this.resourceUrlPotrosnja);
   }
 
   delete(id: number): Observable<HttpResponse<{}>> {

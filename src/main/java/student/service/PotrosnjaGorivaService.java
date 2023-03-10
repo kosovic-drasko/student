@@ -11,8 +11,8 @@ public class PotrosnjaGorivaService {
     PotrosnjaGoriva potrosnjaGoriva = new PotrosnjaGoriva();
 
     @Transactional
-    public double izracunaj() {
-        potrosnjaGoriva.setPotrosnjaOtvoreno(20);
+    public double izracunaj(double potrosnja) {
+        potrosnjaGoriva.setPotrosnjaOtvoreno(potrosnja);
         return potrosnjaGoriva.getPotrosnjaOtvoreno();
     }
 }

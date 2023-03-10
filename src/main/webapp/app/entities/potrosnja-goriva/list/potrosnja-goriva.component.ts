@@ -19,7 +19,7 @@ export class PotrosnjaGorivaComponent implements OnInit {
   potrosnja?: string;
   predicate = 'id';
   ascending = true;
-
+  potrosnjaGradska?: any = 135.0;
   constructor(
     protected potrosnjaGorivaService: PotrosnjaGorivaService,
     protected activatedRoute: ActivatedRoute,
@@ -32,6 +32,18 @@ export class PotrosnjaGorivaComponent implements OnInit {
 
   ngOnInit(): void {
     this.load();
+  }
+  protected queryBackendPotrosnja(): any {
+    return this.potrosnjaGorivaService.potrosnja(this.potrosnjaGradska).subscribe({
+      next: (res: string | undefined) => {
+        this.potrosnja = res;
+        console.log('To je potrosnja:', this.potrosnja);
+      },
+    });
+  }
+
+  load(): void {
+    this.queryBackendPotrosnja();
   }
 
   delete(potrosnjaGoriva: IPotrosnjaGoriva): void {
@@ -48,20 +60,6 @@ export class PotrosnjaGorivaComponent implements OnInit {
           this.onResponseSuccess(res);
         },
       });
-  }
-  protected queryBackendPotrosnja(): any {
-    return this.potrosnjaGorivaService.potrosnja().subscribe({
-      next: (res: string | undefined) => {
-        this.potrosnja = res;
-        console.log('To je potrosnja:', this.potrosnja);
-      },
-    });
-  }
-
-  load(): void {
-    // this.onResponseSuccess(res);
-    this.queryBackendPotrosnja();
-    // console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<', this.potrosnja);
   }
 
   navigateToWithComponentValues(): void {

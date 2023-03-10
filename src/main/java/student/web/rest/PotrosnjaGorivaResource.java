@@ -2,6 +2,7 @@ package student.web.rest;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,10 +36,10 @@ public class PotrosnjaGorivaResource {
 
     PotrosnjaGorivaService potrosnjaGorivaService = new PotrosnjaGorivaService();
 
-    @GetMapping("/potrosnja")
-    public double izracunajPotrosnju1() {
-        log.debug("Izracunavam potrosnju goriva: {}");
+    @GetMapping("/potrosnja/{potrosnja}")
+    public double izracunajPotrosnju1(@PathVariable(value = "potrosnja") final Double potrosnja) {
+        log.debug("Izracunavam potrosnju goriva: {}", potrosnja);
 
-        return potrosnjaGorivaService.izracunaj();
+        return potrosnjaGorivaService.izracunaj(potrosnja);
     }
 }
