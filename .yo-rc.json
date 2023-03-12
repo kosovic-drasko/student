@@ -21,7 +21,9 @@
     "enableTranslation": false,
     "entities": ["Student", "PotrosnjaGoriva"],
     "entitySuffix": "",
-
+    "herokuAppName": "studenti",
+    "herokuDeployType": "git",
+    "herokuJavaVersion": "18",
     "jhiPrefix": "jhi",
     "jhipsterVersion": "7.9.3",
     "jwtSecretKey": "YTIyMmI1NTVhYWJiNWZjNjZlZmU0ZDhkNzhjZWY2Y2Q3MDE0ZDlmMDNkZDVjOTgwMmJiZDg0MjBjOWZmMWUwNTdkNDU4N2M4ZWJkOTZjOGVjODgwYWU1OWRhNTI1M2ZkOTY5YjdhNjdhNWVjOWFlNTlhMzI4ODJhMGIzY2VmZmY=",
