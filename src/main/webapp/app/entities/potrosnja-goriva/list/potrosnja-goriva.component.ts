@@ -16,7 +16,7 @@ import { SortService } from 'app/shared/sort/sort.service';
 export class PotrosnjaGorivaComponent implements OnInit {
   potrosnjaGorivas?: IPotrosnjaGoriva[];
   isLoading = false;
-  potrosnja?: string;
+  potrosnja?: number;
   predicate = 'id';
   ascending = true;
   potrosnjaOtvoreno?: any;
@@ -36,7 +36,7 @@ export class PotrosnjaGorivaComponent implements OnInit {
   }
   protected queryBackendPotrosnja(): any {
     return this.potrosnjaGorivaService.potrosnja(this.potrosnjaOtvoreno, this.predjenoKm).subscribe({
-      next: (res: string | undefined) => {
+      next: (res: number | undefined) => {
         this.potrosnja = res;
         // this.predjenoKm=res;
         console.log('To je potrosnja:', this.potrosnja);
