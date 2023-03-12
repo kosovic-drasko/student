@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import student.domain.Student;
 import student.repository.StudentRepository;
-import student.service.PotrosnjaService;
 import student.service.StudentQueryService;
 import student.service.StudentService;
 import student.service.criteria.StudentCriteria;
