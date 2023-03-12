@@ -45,7 +45,7 @@ export class PotrosnjaGorivaComponent implements OnInit {
   }
 
   load(): void {
-    this.queryBackendPotrosnja();
+    // this.queryBackendPotrosnja();
   }
 
   delete(potrosnjaGoriva: IPotrosnjaGoriva): void {
